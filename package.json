@@ -1,0 +1,35 @@
+{
+  "name": "raytracer-in-one-weekend-js",
+  "version": "1.0.0",
+  "description": "A Ray Tracer Implementation in JS based on the book 'Ray Tracing in a Weekend' - http://www.realtimerendering.com/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "ex1": "node src/exercise-1",
+    "ex2": "node src/exercise-2",
+    "ex3": "node src/exercise-3",
+    "ex4": "node src/exercise-4",
+    "ex5": "node src/exercise-5",
+    "ex6": "node src/exercise-6",
+    "ex7": "node src/exercise-7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anselm94/raytracer-in-a-weekend-nodejs.git"
+  },
+  "keywords": [
+    "raytracer",
+    "graphics",
+    "challenge",
+    "demo",
+    "learn",
+    "nodejs"
+  ],
+  "author": "anselm94",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anselm94/raytracer-in-a-weekend-nodejs/issues"
+  },
+  "homepage": "https://github.com/anselm94/raytracer-in-a-weekend-nodejs#readme"
+}
