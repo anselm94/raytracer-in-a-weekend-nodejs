@@ -19,4 +19,4 @@ for (var j = iResY - 1; j >= 0; j--) {
 }
 
 var sFileName = __filename.slice(__dirname.length + 1, -3);
-FileManager.saveImage(sFileName, FileManager.format.ppm, mImage);
+FileManager.saveImage(sFileName, FileManager.format.png, mImage);

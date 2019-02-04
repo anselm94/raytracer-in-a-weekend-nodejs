@@ -10,7 +10,7 @@ A Ray Tracer Implementation in NodeJS based on the book [Ray Tracing in A Weeken
 
 * Install [NodeJS](https://nodejs.org)
 
-* Download any .ppm Viewer - [OpenSeeIt](http://openseeit.sourceforge.net/)
+* `cd` into the cloned folder and run `npm install` to install [Jimp](https://github.com/oliver-moran/jimp) for PNG encoding
 
 ## Exercises
 
@@ -20,11 +20,15 @@ A Ray Tracer Implementation in NodeJS based on the book [Ray Tracing in A Weeken
 npm run ex1
 ```
 
+![Output An Image](output/exercise-1.png)
+
 ### 2. Rays, A Simple Camera & Background
 
 ```bash
 npm run ex2
 ```
+
+![Rays, A Simple Camera & Background](output/exercise-2.png)
 
 ### 3. Adding A Sphere
 
@@ -32,11 +36,15 @@ npm run ex2
 npm run ex3
 ```
 
+![Adding A Sphere](output/exercise-3.png)
+
 ### 4. Surface Normals & Multiple Objects
 
 ```bash
 npm run ex4
 ```
+
+![Surface Normals & Multiple Objects](output/exercise-4.png)
 
 ### 5. Surface Normals & Multiple Objects | Hitable
 
@@ -44,11 +52,15 @@ npm run ex4
 npm run ex5
 ```
 
+![Surface Normals & Multiple Objects | Hitable](output/exercise-5.png)
+
 ### 6. Antialiasing
 
 ```bash
 npm run ex6
 ```
+
+![Antialiasing](output/exercise-6.png)
 
 ### 7. Diffuse Materials
 
@@ -56,9 +68,7 @@ npm run ex6
 npm run ex7
 ```
 
-## Viewing .ppm Image Format
-
-The rendered output images are stored in *.ppm* format under `.output` folder. **Portable Pixmap Format** (*PPM*) is one of the simplest and easiest human-readable image format. However most of the Image Viewers don't support them. Download  [OpenSeeIt](http://openseeit.sourceforge.net/) to view them.
+![Diffuse Materials](output/exercise-7.png)
 
 ## License
 

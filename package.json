@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/anselm94/raytracer-in-a-weekend-nodejs/issues"
   },
-  "homepage": "https://github.com/anselm94/raytracer-in-a-weekend-nodejs#readme"
+  "homepage": "https://github.com/anselm94/raytracer-in-a-weekend-nodejs#readme",
+  "dependencies": {
+    "jimp": "^0.6.0"
+  }
 }
