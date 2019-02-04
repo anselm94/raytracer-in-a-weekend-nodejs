@@ -1,4 +1,5 @@
 var Vector = require("./vector");
+var Material = require("./material");
 
 class Hitable {
     hit(rayIn, iTmin, iTmax, hitRecord) {
@@ -11,6 +12,7 @@ class HitRecord {
         this._t = 0;
         this._incident = new Vector(0, 0, 0);
         this._normal = new Vector(0, 0, 0);
+        this._material = new Material();
     }
 
     get t() {
@@ -25,6 +27,10 @@ class HitRecord {
         return this._normal;
     }
 
+    get material() {
+        return this._material;
+    }
+
     set t(iT) {
         this._t = iT;
     }
@@ -35,6 +41,10 @@ class HitRecord {
 
     set normal(vectorNormal) {
         this._normal = vectorNormal;
+    }
+
+    set material(material) {
+        this._material = material;
     }
 }
 

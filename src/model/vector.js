@@ -17,6 +17,18 @@ class Vector3D {
         return this._z;
     }
 
+    set x(fX) {
+        this._x = fX;
+    }
+
+    set y(fY) {
+        this._y = fY;
+    }
+
+    set z(fZ) {
+        this._z = fZ;
+    }
+
     get red() {
         return Math.abs(Math.round(this._x * 255));
     }

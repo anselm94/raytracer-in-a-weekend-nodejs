@@ -4,7 +4,7 @@ var Vector = require("./model/vector");
 var Ray = require("./model/ray");
 var HitRecord = require("./model/hitable").HitRecord;
 var HitableList = require("./model/hitablelist");
-var Sphere = require("./model/sphere");
+var Sphere = require("./model/shape/sphere");
 
 console.log("--------------------------------------------------------");
 console.log("Exercise 5: Surface Normals & Multiple Objects | Hitable");

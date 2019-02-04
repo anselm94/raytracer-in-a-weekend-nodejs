@@ -4,6 +4,8 @@ A Ray Tracer Implementation in NodeJS based on the book [Ray Tracing in A Weeken
 
 [DeltaManiac](https://github.com/DeltaManiac) gave a challenge to try *Ray Tracing In A Weekend* in NodeJS, which he implemented himself in [Rust-Lang](https://www.rust-lang.org/) in [here](https://github.com/DeltaManiac/Weekend-Ray-Tracer).
 
+> Work In Progress
+
 ## Prequisites
 
 * Clone/Download this repository
@@ -69,6 +71,22 @@ npm run ex7
 ```
 
 ![Diffuse Materials](output/exercise-7.png)
+
+### 8. Metal
+
+```bash
+npm run ex8
+```
+
+![Metal](output/exercise-8.png)
+
+### 9. Metal with Fuzz
+
+```bash
+npm run ex9
+```
+
+![Metal with Fuzz](output/exercise-9.png)
 
 ## License
 

@@ -1,10 +1,11 @@
-var Hitable = require("./hitable").Hitable;
+var Hitable = require("../hitable").Hitable;
 
 class Sphere extends Hitable {
-    constructor(vectorCenter, iRadius) {
+    constructor(vectorCenter, iRadius, materialSurface) {
         super();
         this._center = vectorCenter;
         this._radius = iRadius;
+        this._material = materialSurface;
     }
 
     hit(rayIn, iTmin, iTmax, hitRecord) {
@@ -16,19 +17,20 @@ class Sphere extends Hitable {
         if (iDiscriminant > 0) {
             var temp = ((-1 * b) - Math.sqrt(iDiscriminant)) / a;
             if(temp < iTmax && temp > iTmin) {
-                return assignHitRecord(temp, this._center, this._radius);
+                return assignHitRecord(temp, this._center, this._radius, this._material);
             }
             temp = ((-1 * b) + Math.sqrt(iDiscriminant)) / a;
             if(temp < iTmax && temp > iTmin) {
-                return assignHitRecord(temp, this._center, this._radius);
+                return assignHitRecord(temp, this._center, this._radius, this._material);
             }
         }
         return false;
 
-        function assignHitRecord(iValue, iCenter, iRadius) {
+        function assignHitRecord(iValue, iCenter, iRadius, materialSurface) {
             hitRecord.t = iValue;
             hitRecord.incident = rayIn.pointAt(hitRecord.t);
             hitRecord.normal = hitRecord.incident.subtract(iCenter)._divide(iRadius);
+            hitRecord.material = materialSurface;
             return true;
         }
     }

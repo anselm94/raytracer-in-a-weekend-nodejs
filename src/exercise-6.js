@@ -3,7 +3,7 @@ var FileManager = require("./utils/filemanager");
 var Vector = require("./model/vector");
 var HitRecord = require("./model/hitable").HitRecord;
 var HitableList = require("./model/hitablelist");
-var Sphere = require("./model/sphere");
+var Sphere = require("./model/shape/sphere");
 var Camera = require("./model/camera");
 
 console.log("------------------------");

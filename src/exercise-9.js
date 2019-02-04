@@ -6,9 +6,11 @@ var HitRecord = require("./model/hitable").HitRecord;
 var HitableList = require("./model/hitablelist");
 var Sphere = require("./model/shape/sphere");
 var Camera = require("./model/camera");
+var Lambertian = require('./model/material/lambertian');
+var Metal = require('./model/material/metal');
 
 console.log("-----------------------------");
-console.log("Exercise 7: Diffuse Materials");
+console.log("Exercise 9: Metal with Fuzz");
 console.log("-----------------------------");
 
 var iResX = 200,
@@ -16,9 +18,11 @@ var iResX = 200,
     iSamples = 100;
 var mImage = new Image(iResX, iResY);
 
-var sphereSubject = new Sphere(new Vector(0, 0, -1), 0.5);
-var sphereSky = new Sphere(new Vector(0, -100.5, -1), 100);
-var listHitable = [sphereSubject, sphereSky];
+var listHitable = [];
+listHitable.push(new Sphere(new Vector(0, 0, -1), 0.5, new Lambertian(new Vector(0.8, 0.3, 0.3))));
+listHitable.push(new Sphere(new Vector(0, -100.5, -1), 100, new Lambertian(new Vector(0.8, 0.8, 0))));
+listHitable.push(new Sphere(new Vector(1, 0, -1), 0.5, new Metal(new Vector(0.8, 0.6, 0.2), 1)));
+listHitable.push(new Sphere(new Vector(-1, 0, -1), 0.5, new Metal(new Vector(0.8, 0.8, 0.8), 0.3)));
 var hitableWorld = new HitableList(listHitable);
 var camera = new Camera();
 
@@ -30,7 +34,7 @@ for (var j = iResY - 1; j >= 0; j--) {
             var v = (j + Math.random()) / iResY;
             ray = camera.getRay(u, v);
             var vectorPoint = ray.pointAt(2);
-            color.addTo(generateColor(ray, hitableWorld))
+            color.addTo(generateColor(ray, hitableWorld, 0));
         }
         color = color._divide(iSamples);
         color = new Vector(Math.sqrt(color.x), Math.sqrt(color.y), Math.sqrt(color.z));
@@ -38,27 +42,24 @@ for (var j = iResY - 1; j >= 0; j--) {
     }
 }
 
-function generateColor(rayIn, hitableWorld) {
+function generateColor(rayIn, hitableWorld, iDepth) {
     var hitrecord = new HitRecord();
     var iTmax = Math.pow(10, 38);
     if (hitableWorld.hit(rayIn, 0.001, iTmax, hitrecord)) {
-        var vectorTarget = hitrecord.incident.add(hitrecord.normal).add(getRandomInUnitSphere());
-        return generateColor(new Ray(hitrecord.incident, vectorTarget.subtract(hitrecord.incident)), hitableWorld).multiply(0.5);
+        var rayScattered = new Ray(new Vector(0, 0, 0), new Vector(0, 0, 0));
+        var vectorAttenuation = new Vector(0, 0, 0);
+        if (iDepth < 50 && hitrecord.material.scatter(rayIn, hitrecord, vectorAttenuation, rayScattered)) {
+            var color = generateColor(rayScattered, hitableWorld, iDepth + 1);
+            return new Vector(vectorAttenuation.x * color.x, vectorAttenuation.y * color.y, vectorAttenuation.z * color.z);
+        } else {
+            return new Vector(0, 0, 0);
+        }
     } else {
         var t = (rayIn.direction.getUnit().y + 1) * 0.5;
         var colorStart = new Vector(1, 1, 1);
         var colorEnd = new Vector(0.5, 0.7, 1.0);
         return colorStart.multiply(1 - t).add(colorEnd.multiply(t)); // (1 - posY) * colorStart + posY * colorEnd
     }
-}
-
-function getRandomInUnitSphere() {
-    var vector;
-    do {
-        var vectorTemp = new Vector(Math.random(), Math.random(), Math.random());
-        vector = vectorTemp.multiply(2).subtract(new Vector(1, 1, 1));
-    } while (vector.squaredLength() >= 1);
-    return vector;
 }
 
 var sFileName = __filename.slice(__dirname.length + 1, -3);
