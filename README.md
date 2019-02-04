@@ -80,13 +80,13 @@ npm run ex8
 
 ![Metal](output/exercise-8.png)
 
-### 9. Metal with Fuzz
+### 9. Metal with Roughness
 
 ```bash
 npm run ex9
 ```
 
-![Metal with Fuzz](output/exercise-9.png)
+![Metal with Roughness](output/exercise-9.png)
 
 ## Author
 

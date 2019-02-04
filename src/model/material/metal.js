@@ -2,20 +2,20 @@ var Material = require("../material");
 var Vector = require("../vector");
 
 class Metal extends Material {
-    constructor(vectorAlbedo, iFuzz) {
+    constructor(vectorAlbedo, iRoughness) {
         super();
         this._albedo = vectorAlbedo;
-        if(iFuzz) {
-            this._fuzz = iFuzz < 1 ? iFuzz : 1;
+        if(iRoughness) {
+            this._roughness = iRoughness < 1 ? iRoughness : 1;
         } else {
-            this._fuzz = 0;
+            this._roughness = 0;
         }
     }
 
     scatter(rayIn, hitRecord, vectorAttenuation, rayScattered) {
         var vectorReflected = this.reflect(rayIn.direction.getUnit(), hitRecord.normal);
         rayScattered.origin = hitRecord.incident;
-        rayScattered.direction = vectorReflected.add(this.getRandomInUnitSphere().multiply(this._fuzz));
+        rayScattered.direction = vectorReflected.add(this.getRandomInUnitSphere().multiply(this._roughness));
         vectorAttenuation.x = this._albedo.x;
         vectorAttenuation.y = this._albedo.y;
         vectorAttenuation.z = this._albedo.z;

@@ -9,9 +9,9 @@ var Camera = require("./model/camera");
 var Lambertian = require('./model/material/lambertian');
 var Metal = require('./model/material/metal');
 
-console.log("-----------------------------");
+console.log("-----------------");
 console.log("Exercise 8: Metal");
-console.log("-----------------------------");
+console.log("-----------------");
 
 var iResX = 200,
     iResY = 100,
