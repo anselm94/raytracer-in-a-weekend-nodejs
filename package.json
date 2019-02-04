@@ -14,7 +14,8 @@
     "ex6": "node src/exercise-6",
     "ex7": "node src/exercise-7",
     "ex8": "node src/exercise-8",
-    "ex9": "node src/exercise-9"
+    "ex9": "node src/exercise-9",
+    "ex10": "node src/exercise-10"
   },
   "repository": {
     "type": "git",

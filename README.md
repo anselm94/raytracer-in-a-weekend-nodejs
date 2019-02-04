@@ -88,6 +88,14 @@ npm run ex9
 
 ![Metal with Roughness](output/exercise-9.png)
 
+### 10. Dielectrics
+
+```bash
+npm run ex10
+```
+
+![Dielectrics](output/exercise-10.png)
+
 ## Author
 
 [Merbin J Anselm](https://github.com/anselm94)
