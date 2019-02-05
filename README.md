@@ -96,6 +96,30 @@ npm run ex10
 
 ![Dielectrics](output/exercise-10.png)
 
+### 11. Positionable Camera
+
+```bash
+npm run ex11
+```
+
+![Positionable Camera](output/exercise-11.png)
+
+### 11. Positionable Camera - Zoom Out
+
+```bash
+npm run ex12
+```
+
+![Positionable Camera - Zoom Out](output/exercise-12.png)
+
+### 11. Positionable Camera - Zoom In
+
+```bash
+npm run ex13
+```
+
+![Positionable Camera - Zoom In](output/exercise-13.png)
+
 ## Author
 
 [Merbin J Anselm](https://github.com/anselm94)

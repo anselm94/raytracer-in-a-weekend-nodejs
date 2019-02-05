@@ -5,14 +5,14 @@ var Ray = require("./model/ray");
 var HitRecord = require("./model/hitable").HitRecord;
 var HitableList = require("./model/hitablelist");
 var Sphere = require("./model/shape/sphere");
-var Camera = require("./model/camera");
+var Camera = require("./model/camera-positionable");
 var Lambertian = require('./model/material/lambertian');
 var Metal = require('./model/material/metal');
 var Dielectric = require('./model/material/dielectric');
 
-console.log("------------------------");
-console.log("Exercise 10: Dielectrics");
-console.log("------------------------");
+console.log("------------------------------------------");
+console.log("Exercise 12: Positionable Camera - Zoom In");
+console.log("------------------------------------------");
 
 var iResX = 200,
     iResY = 100,
@@ -22,11 +22,11 @@ var mImage = new Image(iResX, iResY);
 var listHitable = [];
 listHitable.push(new Sphere(new Vector(0, 0, -1), 0.5, new Lambertian(new Vector(0.1, 0.2, 0.5))));
 listHitable.push(new Sphere(new Vector(0, -100.5, -1), 100, new Lambertian(new Vector(0.8, 0.8, 0))));
-listHitable.push(new Sphere(new Vector(1, 0, -1), 0.5, new Metal(new Vector(0.8, 0.6, 0.2), 0)));
+listHitable.push(new Sphere(new Vector(1, 0, -1), 0.5, new Metal(new Vector(0.8, 0.6, 0.2), 0.25)));
 listHitable.push(new Sphere(new Vector(-1, 0, -1), 0.5, new Dielectric(1.5)));
 listHitable.push(new Sphere(new Vector(-1, 0, -1), -0.45, new Dielectric(1.5)));
 var hitableWorld = new HitableList(listHitable);
-var camera = new Camera();
+var camera = new Camera(new Vector(-2, 2, 1), new Vector(0, 0, -1), new Vector(0, 1, 0), 20, iResX / iResY);
 
 for (var j = iResY - 1; j >= 0; j--) {
     for (var i = 0; i < iResX; i++) {
