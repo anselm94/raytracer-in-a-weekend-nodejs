@@ -5,14 +5,14 @@ var Ray = require("./model/ray");
 var HitRecord = require("./model/hitable").HitRecord;
 var HitableList = require("./model/hitablelist");
 var Sphere = require("./model/shape/sphere");
-var Camera = require("./model/camera-positionable");
+var Camera = require("./model/camera-positionable-with-focus");
 var Lambertian = require('./model/material/lambertian');
 var Metal = require('./model/material/metal');
 var Dielectric = require('./model/material/dielectric');
 
-console.log("------------------------------------------");
-console.log("Exercise 13: Positionable Camera - Zoom In");
-console.log("------------------------------------------");
+console.log("-------------------------");
+console.log("Exercise 14: Defocus Blur");
+console.log("-------------------------");
 
 var iResX = 200,
     iResY = 100,
@@ -26,7 +26,12 @@ listHitable.push(new Sphere(new Vector(1, 0, -1), 0.5, new Metal(new Vector(0.8,
 listHitable.push(new Sphere(new Vector(-1, 0, -1), 0.5, new Dielectric(1.5)));
 listHitable.push(new Sphere(new Vector(-1, 0, -1), -0.45, new Dielectric(1.5)));
 var hitableWorld = new HitableList(listHitable);
-var camera = new Camera(new Vector(-2, 2, 1), new Vector(0, 0, -1), new Vector(0, 1, 0), 20, iResX / iResY);
+
+var vectorLookFrom = new Vector(3, 3, 2);
+var vectorLookAt = new Vector(0, 0, -1);
+var iFocalDistance = vectorLookFrom.subtract(vectorLookAt).length();
+var iAperture = 2;
+var camera = new Camera(vectorLookFrom, vectorLookAt, new Vector(0, 1, 0), 20, iResX / iResY, iAperture, iFocalDistance);
 
 for (var j = iResY - 1; j >= 0; j--) {
     for (var i = 0; i < iResX; i++) {

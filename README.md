@@ -104,7 +104,7 @@ npm run ex11
 
 ![Positionable Camera](output/exercise-11.png)
 
-### 11. Positionable Camera - Zoom Out
+### 12. Positionable Camera - Zoom Out
 
 ```bash
 npm run ex12
@@ -112,13 +112,29 @@ npm run ex12
 
 ![Positionable Camera - Zoom Out](output/exercise-12.png)
 
-### 11. Positionable Camera - Zoom In
+### 13. Positionable Camera - Zoom In
 
 ```bash
 npm run ex13
 ```
 
 ![Positionable Camera - Zoom In](output/exercise-13.png)
+
+### 14. Defocus Blur
+
+```bash
+npm run ex14
+```
+
+![Defocus Blur](output/exercise-14.png)
+
+### 15. Cover Image
+
+```bash
+npm run ex15
+```
+
+![Cover Image](output/exercise-15.png)
 
 ## Author
 
