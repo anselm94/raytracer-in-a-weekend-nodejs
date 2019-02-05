@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
+    "cover": "node src/cover",
     "ex1": "node src/exercise-1",
     "ex2": "node src/exercise-2",
     "ex3": "node src/exercise-3",

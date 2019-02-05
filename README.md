@@ -4,7 +4,9 @@ A Ray Tracer Implementation in NodeJS based on the book [Ray Tracing in A Weeken
 
 [DeltaManiac](https://github.com/DeltaManiac) gave a challenge to try *Ray Tracing In A Weekend* in NodeJS, which he implemented himself in [Rust-Lang](https://www.rust-lang.org/) in [here](https://github.com/DeltaManiac/Weekend-Ray-Tracer).
 
-> Work In Progress
+![Cover Image](output/cover.png)
+
+> Run `npm run cover` under the cloned folder to get this beautiful cover image, rendered purely using JavaScript. It may take a while to render as it involves heavy computation. This image took 46 minutes to render in a i5 6300U Mobile CPU with 16GB RAM. GPU does not affect render times, as it is a software based rendering.
 
 ## Prequisites
 
